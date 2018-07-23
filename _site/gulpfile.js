@@ -71,9 +71,9 @@ gulp.task('images', () => {
     .pipe(newer('assets/images'))
     .pipe(cloudinary({
       config: {
-        cloud_name: 'jordandwhalen',
-        api_key: '392174534756741',
-        api_secret: '_bRuRIBqe3uCZmyI51CN0MFQdks'
+        cloud_name: 'justinlaxamana',
+        api_key: '654636643421472',
+        api_secret: '64gb0ku_I2X5126dl9pBIy8Rc4o'
       }
     }))
     .pipe(imagemin({
