@@ -12,5 +12,5 @@ defaults:
       layout: single-project
 include: ["_pages"]
 permalink: /:title/
-cloudinary_url: "https://res.cloudinary.com/jordandwhalen/"
+cloudinary_url: "https://res.cloudinary.com/justinlaxamana/"
 ---
