@@ -66,9 +66,9 @@ gulp.task('js', () => {
 });
 
 gulp.task('images', () => {
-  return gulp.src('_assets/images/**/*.{jpg,jpeg,png,gif,ico,svg}')
+  return gulp.src('_assets/resources/**/*.{jpg,jpeg,png,gif,ico,svg}')
     .pipe(flatten())
-    .pipe(newer('assets/images'))
+    .pipe(newer('assets/resources'))
     .pipe(cloudinary({
       config: {
         cloud_name: 'justinlaxamana',
@@ -83,9 +83,10 @@ gulp.task('images', () => {
         svgoPlugins: []
     }))
     .on('error', handleError)
-    .pipe(gulp.dest('assets/images'))
-    .pipe(gulp.dest('_site/assets/images'))
+    .pipe(gulp.dest('assets/resources'))
+    .pipe(gulp.dest('_site/assets/resources'))
 });
+
 
 gulp.task('resources', () => {
   return gulp.src('_assets/resources/**/*')
@@ -123,11 +124,11 @@ gulp.task('watch', function(){
   gulp.watch(['_assets/styles/**/*.scss'], ['styles']);
   gulp.watch(['_assets/js/scripts/**/*.js'], ['js']);
   gulp.watch(['_assets/js/vendor/**/*.js'], ['vendor-js']);
-  gulp.watch(['_assets/images/**/*.{jpg,jpeg,png,gif,ico,svg}'], ['images']);
+  gulp.watch(['_assets/resources/**/*.{jpg,jpeg,png,gif,ico,svg}'], ['images']);
   gulp.watch(['_assets/resources/**/*', '!src/assets/resources/**/*.{jpg,jpeg,png,gif,ico,svg}'], ['resources']);
   gulp.watch(['*.html', '_includes/*.html', '_pages/*.html', '_layouts/*.html', '_posts/*', '_projects/*'], ['jekyll-rebuild']);
 
-  gulp.watch(['_site/**/*', '_site/assets/**/*', '_site/assets/images/.{jpg,jpeg,png,gif,ico,svg}', '_site/assets/styles/*.css']).on('change', browserSync.reload);
+  gulp.watch(['_site/**/*', '_site/assets/**/*', '_site/assets/resources/.{jpg,jpeg,png,gif,ico,svg}', '_site/assets/styles/*.css']).on('change', browserSync.reload);
 
 });
 
@@ -166,9 +167,9 @@ gulp.task('prod-js', () => {
 });
 
 gulp.task('prod-images', () => {
-  return gulp.src('_assets/images/**/*.{jpg,jpeg,png,gif,ico,svg}')
+  return gulp.src('_assets/resources/**/*.{jpg,jpeg,png,gif,ico,svg}')
     .pipe(flatten())
-    .pipe(newer('assets/images'))
+    .pipe(newer('assets/resources'))
     .pipe(imagemin({
         optimizationLevel: 10,
         progressive: true,
@@ -176,7 +177,7 @@ gulp.task('prod-images', () => {
         svgoPlugins: []
     }))
     .on('error', handleError)
-    .pipe(gulp.dest('assets/images'))
+    .pipe(gulp.dest('assets/resources'))
 });
 
 gulp.task('prod-resources', () => {
