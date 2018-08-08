@@ -33,6 +33,7 @@ gulp.task('styles', function() {
     .pipe(autoprefixer({cascade: false}))
     .pipe(sourcemaps.write())
     .on('error', handleError)
+    .pipe(gulp.dest('assets/styles'))
     .pipe(gulp.dest('_site/assets/styles'))
     .pipe(browserSync.stream())
 });
@@ -44,6 +45,7 @@ gulp.task('vendor-js', () => {
   .pipe(concat('application-vendor.js'))
   // .pipe(uglify())
   .on('error', handleError)
+  .pipe(gulp.dest('assets/js'))
   .pipe(gulp.dest('_site/assets/js'))
 });
 
@@ -58,6 +60,7 @@ gulp.task('js', () => {
   .on('error', handleError)
   .pipe(concat('application.js'))
   .pipe(sourcemaps.write())
+  .pipe(gulp.dest('assets/js'))
   .pipe(gulp.dest('_site/assets/js'))
   .pipe(browserSync.stream())
 });
@@ -80,6 +83,7 @@ gulp.task('images', () => {
         svgoPlugins: []
     }))
     .on('error', handleError)
+    .pipe(gulp.dest('assets/images'))
     .pipe(gulp.dest('_site/assets/images'))
 });
 
@@ -88,6 +92,7 @@ gulp.task('resources', () => {
     .pipe(flatten())
     .pipe(newer('assets/resources'))
     .on('error', handleError)
+    .pipe(gulp.dest('assets/resources'))
     .pipe(gulp.dest('_site/assets/resources'))
 });
 
@@ -127,6 +132,61 @@ gulp.task('watch', function(){
 });
 
 
+// Production Tasks
+
+gulp.task('prod-styles', () => {
+  return gulp.src('_assets/styles/application.scss') // IMPORT ANY OTHER VENDOR LIBS FROM THAT SRC FILE
+    .pipe(flatten())
+    .pipe(globbing({extensions: '.scss'}))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(autoprefixer({cascade: false}))
+    .on('error', handleError)
+    .pipe(gulp.dest('assets/styles'))
+});
+
+gulp.task('prod-vendor-js', () => {
+  return gulp.src([
+    '_assets/js/vendor/**/*.js',
+  ])
+  .pipe(concat('application-vendor.js'))
+  .pipe(uglify())
+  .on('error', handleError)
+  .pipe(gulp.dest('assets/js'))
+});
+
+gulp.task('prod-js', () => {
+  return gulp.src([
+    '_assets/js/scripts/**/*.js',
+  ])
+  .pipe(jshint())
+  .pipe(jshint.reporter(stylish))
+  .on('error', handleError)
+  .pipe(concat('application.js'))
+  .pipe(gulp.dest('assets/js'))
+});
+
+gulp.task('prod-images', () => {
+  return gulp.src('_assets/images/**/*.{jpg,jpeg,png,gif,ico,svg}')
+    .pipe(flatten())
+    .pipe(newer('assets/images'))
+    .pipe(imagemin({
+        optimizationLevel: 10,
+        progressive: true,
+        interlaced: true,
+        svgoPlugins: []
+    }))
+    .on('error', handleError)
+    .pipe(gulp.dest('assets/images'))
+});
+
+gulp.task('prod-resources', () => {
+  return gulp.src('_assets/resources/**/*')
+    .pipe(flatten())
+    .pipe(newer('assets/resources'))
+    .on('error', handleError)
+    .pipe(gulp.dest('assets/resources'))
+});
+
 // Error reporting function
 function handleError(err) {
     console.log(err.toString());
@@ -134,3 +194,4 @@ function handleError(err) {
 }
 
 gulp.task('default', devTasks);
+gulp.task('prod', prodTasks);
