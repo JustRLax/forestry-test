@@ -5,3 +5,10 @@
 //**** Typography
 
 //**** Animations
+@include setup-fadeInUp;
+@include setup-fadeIn;
+@include setup-fadeOut;
+@include setup-fadeInLeft;
+@include setup-fadeInRight;
+@include setup-fadeInDown;
+@include setup-fadeOutDown;
