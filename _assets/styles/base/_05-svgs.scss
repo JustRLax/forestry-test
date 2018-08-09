@@ -1,0 +1,49 @@
+//city
+.city {
+  fill:#6a4353;
+}
+
+//bird
+.bird {
+  fill: #333;
+}
+
+//ground
+.ground {
+  fill: $purple;
+}
+
+//ground
+.cap {
+  fill: $purple;
+}
+
+//speedbag
+.speedbag {
+  fill:$purple
+}
+.bag {
+  fill:$purple;
+  transition: $transition;
+}
+
+//bike
+.wheels {
+  fill:$purple
+}
+.bikeframe {
+  fill:$purple;
+  transition: $transition;
+}
+
+//Helmet
+.helmet {
+  fill:$purple;
+  transition: $transition;
+}
+
+//Speaker
+.speaker {
+  fill:$purple;
+  transition: $transition;
+}

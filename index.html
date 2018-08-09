@@ -19,8 +19,41 @@ title: Home
   </div> <!-- / __city -->
   <div class="intro__water"></div> <!-- / __water -->
   <div class="intro__foreground">
-    {% svg ../../assets/resources/foreground.svg %}
+    <div class="intro__foreground__left">
+      {% svg ../../assets/resources/foreground.svg %}
+    </div> <!-- / __left -->
+    <div class="intro__foreground__right">
+      {% svg ../../assets/resources/foreground-cap.svg %}
+    </div> <!-- / __right -->
+    <ul class="intro__items">
+      <li class="intro__items__speedbag">
+        <a href="#tooltip-1" class="open-tooltip">
+          {% svg ../../assets/resources/speedbag.svg %}
+        </a>
+      </li> <!-- / __speedbag -->
+      <li class="intro__items__bike">
+        <a href="#tooltip-2" class="open-tooltip">
+          {% svg ../../assets/resources/bike.svg %}
+        </a>
+      </li> <!-- / __bike -->
+      <li class="intro__items__helmet">
+        <a href="#tooltip-3" class="open-tooltip">
+          {% svg ../../assets/resources/helmet.svg %}
+        </a>
+      </li> <!-- / __helmet -->
+      <li class="intro__items__speaker">
+        <a href="#tooltip-4" class="open-tooltip">
+          {% svg ../../assets/resources/speaker.svg %}
+        </a>
+      </li> <!-- / __speaker -->
+    </ul> <!-- / __items -->
   </div> <!-- / __foreground -->
+  <div class="intro__bird intro__bird--higher">
+    {% svg ../../assets/resources/bird.svg %}
+  </div> <!-- / __bird -->
+  <div class="intro__bird intro__bird--lower">
+    {% svg ../../assets/resources/bird.svg %}
+  </div> <!-- / __bird -->
 </div> <!-- / .intro -->
 <div class="foreground">
 

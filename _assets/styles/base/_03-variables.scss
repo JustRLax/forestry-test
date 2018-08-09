@@ -6,6 +6,9 @@ $white: #fff;
 $teal: #0E5664;
 //**** Typography
 
+//**** Transitions
+$transition: .375s all ease-in;
+
 //**** Animations
 @include setup-fadeInUp;
 @include setup-fadeIn;

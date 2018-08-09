@@ -10,6 +10,7 @@
   width: 100%;
   overflow-x: hidden;
   height: 100vh;
+  min-height: 800px;
   padding: 100px 0;
   background: #2A2C32;
   position: relative;
@@ -19,9 +20,9 @@
     height: 220px;
     left: 50%;
     transform: translateX(-50%);
-    top: 80px;
+    top: 120px;
     z-index: 2;
-    &:hover {
+    &:hover, &:focus {
       &:before, &:after {
         opacity: .25;
       }
@@ -39,13 +40,14 @@
       transition: .2s all ease-in;
       background-image: radial-gradient(50% 150%, #F69336 50%, #F68E52 100%);
       z-index: -1;
-      @include animated(2.5s);
       animation-iteration-count: infinite;
     }
     &:after {
+      @include animated(2.5s);
       animation-name: sunGlow1;
     }
     &:before {
+      @include animated(2.2s);
       transform: translate(-50%, -50%) scale(1.5);
       animation-name: sunGlow2;
     }
@@ -86,6 +88,7 @@
     z-index: 5;
     svg {
       width: 100%;
+      min-width: 1300px;
     }
   }
   &__hills-front {
@@ -96,6 +99,7 @@
     z-index: 4;
     svg {
       width: 100%;
+      min-width: 1300px;
     }
   }
   &__hills-back {
@@ -106,6 +110,7 @@
     z-index: 3;
     svg {
       width: 100%;
+      min-width: 1300px;
     }
   }
   &__foreground {
@@ -119,6 +124,100 @@
     will-change: transform;
     svg {
       width: 100%;
+    }
+    &__left {
+      width: 100%;
+      min-width: 1300px;
+    }
+    &__right {
+      width: 270px;
+      position: absolute;
+      right: 0;
+      top: 27%;
+      @include breakpoint(1560px, min-width) {
+        margin-top: 1%;
+      }
+    }
+  }
+  &__items {
+    &__speedbag {
+      position: absolute;
+      left: 0;
+      top: -260px;
+      width: 230px;
+      @include breakpoint(1560px, min-width) {
+        margin-top: 1%;
+      }
+      &:hover {
+        .bag {
+          fill: $white;
+        }
+      }
+    }
+    &__bike {
+      position: absolute;
+      width: 200px;
+      left: 10%;
+      top: -50px;
+      @include breakpoint(1560px, min-width) {
+        margin-top: 1%;
+      }
+      &:hover {
+        .bikeframe {
+          fill: $white;
+        }
+      }
+    }
+    &__helmet {
+      position: absolute;
+      width: 80px;
+      left: 32%;
+      top: 10px;
+      @include breakpoint(1560px, min-width) {
+        margin-top: 1%;
+      }
+      &:hover {
+        .helmet {
+          fill: $white;
+        }
+      }
+    }
+    &__speaker {
+      position: absolute;
+      width: 90px;
+      right: 0;
+      top: -40px;
+      @include breakpoint(1560px, min-width) {
+        top: -10%;
+        margin-top: 1%;
+      }
+      &:hover {
+        .speaker {
+          fill: $white;
+        }
+      }
+    }
+  }
+  &__bird {
+    transition: .375 ease-in-out;
+    position: absolute;
+    left: 20%;
+    top: 100px;
+    z-index: 10;
+    animation-iteration-count: infinite;
+    @include animated(10s);
+    animation-name: birdFly;
+    &--higher {
+      width: 75px;
+    }
+    &--lower {
+      width: 100px;
+      left: auto;
+      right: 20%;
+      top: 300px;
+      animation-delay: .2s;
+      animation-duration: 10.5s;
+      animation-direction: reverse;
     }
   }
 }
