@@ -15,12 +15,40 @@
   position: relative;
   &__logo {
     position: fixed;
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     left: 50%;
-    margin-left: -100px;
+    transform: translateX(-50%);
     top: 80px;
     z-index: 2;
+    &:hover {
+      &:before, &:after {
+        opacity: .25;
+      }
+    }
+    &:after, &:before {
+      content: '';
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      opacity: .19;
+      transform: translate(-50%, -50%) scale(1.26);
+      transition: .2s all ease-in;
+      background-image: radial-gradient(50% 150%, #F69336 50%, #F68E52 100%);
+      z-index: -1;
+      @include animated(2.5s);
+      animation-iteration-count: infinite;
+    }
+    &:after {
+      animation-name: sunGlow1;
+    }
+    &:before {
+      transform: translate(-50%, -50%) scale(1.5);
+      animation-name: sunGlow2;
+    }
     svg {
       width: 100%;
     }
@@ -36,17 +64,15 @@
     }
     &--dark {
       z-index: 1;
-      opacity: var(--opacity);
+      opacity: var(--sky);
     	will-change: opacity;
-      background-image: linear-gradient(-180deg, #3E436F 20%, #D85F6C 80%, #D94E35 100%);
+      background-image: linear-gradient(-180deg, #3E436F 20%, #D85F6C 100%);
     }
   }
   &__water {
     position: absolute;
     left: 0;
     bottom: 0;
-    transform: translateY(var(--ty1));
-    will-change: transform;
     width: 100%;
     height: 250px;
     z-index: 2;
@@ -56,8 +82,6 @@
     position: absolute;
     left: 0;
     bottom: 190px;
-    transform: translateY(var(--ty2));
-    will-change: transform;
     width: 100%;
     z-index: 5;
     svg {
@@ -68,8 +92,6 @@
     position: absolute;
     left: 0;
     bottom: 200px;
-    transform: translateY(var(--ty3));
-    will-change: transform;
     width: 100%;
     z-index: 4;
     svg {
@@ -91,8 +113,10 @@
     left: 0;
     width: 100%;
     z-index: 10;
-    bottom: var(--bottom);
-    will-change: bottom;
+    bottom: 0;
+    backface-visibility: hidden;
+    transform: translateY(var(--fg));
+    will-change: transform;
     svg {
       width: 100%;
     }
@@ -104,6 +128,7 @@
   background: $purple;
   height: 1200px;
   margin-top: -10px;
+  backface-visibility: hidden;
   transform: translateY(var(--ty));
   will-change: transform;
   z-index: 100;
