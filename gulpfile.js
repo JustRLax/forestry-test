@@ -15,8 +15,8 @@ let gulp = require('gulp'),
     child = require('child_process'),
     //babel = require('gulp-babel'),
     cloudinary = require('gulp-cloudinary-upload'),
-    devTasks = ['styles', 'vendor-js', 'js', 'images', 'resources', 'browser-sync', 'watch'],
-    prodTasks = ['prod-styles', 'prod-vendor-js', 'prod-js', 'prod-images', 'prod-resources'];
+    devTasks = ['styles', 'vendor-js', 'js', 'images', 'svg-images', 'resources', 'browser-sync', 'watch'],
+    prodTasks = ['prod-styles', 'prod-vendor-js', 'prod-js', 'prod-images', 'prod-svg-images', 'prod-resources'];
 
     var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
     var messages = {
@@ -66,7 +66,7 @@ gulp.task('js', () => {
 });
 
 gulp.task('images', () => {
-  return gulp.src('_assets/resources/**/*.{jpg,jpeg,png,gif,ico,svg}')
+  return gulp.src('_assets/resources/*.{jpg,jpeg,png,gif,ico}')
     .pipe(flatten())
     .pipe(newer('assets/resources'))
     .pipe(cloudinary({
@@ -87,6 +87,21 @@ gulp.task('images', () => {
     .pipe(gulp.dest('_site/assets/resources'))
 });
 
+gulp.task('svg-images', () => {
+  return gulp.src('_assets/resources/*.{svg}')
+    .pipe(flatten())
+    .pipe(newer('assets/resources'))
+    .pipe(cloudinary({
+      config: {
+        cloud_name: 'justinlaxamana',
+        api_key: '654636643421472',
+        api_secret: '64gb0ku_I2X5126dl9pBIy8Rc4o'
+      }
+    }))
+    .on('error', handleError)
+    .pipe(gulp.dest('assets/resources'))
+    .pipe(gulp.dest('_site/assets/resources'))
+});
 
 gulp.task('resources', () => {
   return gulp.src('_assets/resources/**/*')
@@ -109,7 +124,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
     browserSync.reload();
 });
 
-gulp.task('browser-sync', ['styles', 'vendor-js', 'js', 'images', 'resources', 'jekyll-build'], function() {
+gulp.task('browser-sync', ['styles', 'vendor-js', 'js', 'images', 'svg-images', 'resources', 'jekyll-build'], function() {
 
     browserSync({
         server: {
@@ -124,7 +139,8 @@ gulp.task('watch', function(){
   gulp.watch(['_assets/styles/**/*.scss'], ['styles']);
   gulp.watch(['_assets/js/scripts/**/*.js'], ['js']);
   gulp.watch(['_assets/js/vendor/**/*.js'], ['vendor-js']);
-  gulp.watch(['_assets/resources/**/*.{jpg,jpeg,png,gif,ico,svg}'], ['images']);
+  gulp.watch(['_assets/resources/*.{jpg,jpeg,png,gif,ico}'], ['images']);
+  gulp.watch(['_assets/resources/*.{svg}'], ['svg-images']);
   gulp.watch(['_assets/resources/**/*', '!src/assets/resources/**/*.{jpg,jpeg,png,gif,ico,svg}'], ['resources']);
   gulp.watch(['*.html', '_includes/*.html', '_pages/*.html', '_layouts/*.html', '_posts/*', '_projects/*'], ['jekyll-rebuild']);
 
@@ -167,7 +183,7 @@ gulp.task('prod-js', () => {
 });
 
 gulp.task('prod-images', () => {
-  return gulp.src('_assets/resources/**/*.{jpg,jpeg,png,gif,ico,svg}')
+  return gulp.src('_assets/resources/*.{jpg,jpeg,png,gif,ico}')
     .pipe(flatten())
     .pipe(newer('assets/resources'))
     .pipe(imagemin({
@@ -176,6 +192,14 @@ gulp.task('prod-images', () => {
         interlaced: true,
         svgoPlugins: []
     }))
+    .on('error', handleError)
+    .pipe(gulp.dest('assets/resources'))
+});
+
+gulp.task('prod-svg-images', () => {
+  return gulp.src('_assets/resources/*.{svg}')
+    .pipe(flatten())
+    .pipe(newer('assets/resources'))
     .on('error', handleError)
     .pipe(gulp.dest('assets/resources'))
 });
