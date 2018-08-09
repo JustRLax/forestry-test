@@ -43,7 +43,7 @@ gulp.task('vendor-js', () => {
     '_assets/js/vendor/**/*.js',
   ])
   .pipe(concat('application-vendor.js'))
-  // .pipe(uglify())
+  .pipe(uglify())
   .on('error', handleError)
   .pipe(gulp.dest('assets/js'))
   .pipe(gulp.dest('_site/assets/js'))

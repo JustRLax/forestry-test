@@ -22,6 +22,10 @@
     transform: translateX(-50%);
     top: 120px;
     z-index: 2;
+    @include breakpoint(500px) {
+      width: 180px;
+      height: 180px;
+    }
     &:hover, &:focus {
       &:before, &:after {
         opacity: .25;
@@ -97,6 +101,10 @@
     bottom: 200px;
     width: 100%;
     z-index: 4;
+    transition: $transition;
+    @include breakpoint(600px) {
+      left: -200px;
+    }
     svg {
       width: 100%;
       min-width: 1300px;
@@ -108,9 +116,16 @@
     bottom: 200px;
     width: 100%;
     z-index: 3;
+    transition: $transition;
     svg {
       width: 100%;
       min-width: 1300px;
+    }
+    @include breakpoint(600px) {
+      left: 0px;
+    }
+    @include breakpoint(360px) {
+      left: -100px;
     }
   }
   &__foreground {
@@ -148,6 +163,14 @@
       @include breakpoint(1560px, min-width) {
         margin-top: 1%;
       }
+      @include breakpoint(450px) {
+        width: 210px;
+        top: -240px;
+      }
+      @include breakpoint(360px) {
+        width: 180px;
+        top: -200px;
+      }
       &:hover {
         .bag {
           fill: $white;
@@ -162,6 +185,14 @@
       @include breakpoint(1560px, min-width) {
         margin-top: 1%;
       }
+      @include breakpoint(450px) {
+        width: 180px;
+        top: -50px;
+      }
+      @include breakpoint(360px) {
+        width: 150px;
+        top: -40px;
+      }
       &:hover {
         .bikeframe {
           fill: $white;
@@ -175,6 +206,17 @@
       top: 10px;
       @include breakpoint(1560px, min-width) {
         margin-top: 1%;
+      }
+      @include breakpoint(1050px) {
+        left: 45%;
+      }
+      @include breakpoint(640px) {
+        left: auto;
+        right: 23%;
+      }
+      @include breakpoint(450px) {
+        width: 60px;
+        top: 25px;
       }
       &:hover {
         .helmet {
@@ -191,6 +233,14 @@
         top: -10%;
         margin-top: 1%;
       }
+      @include breakpoint(640px) {
+        left: auto;
+        top: -55px;
+      }
+      @include breakpoint(450px) {
+        width: 70px;
+        top: -35px;
+      }
       &:hover {
         .speaker {
           fill: $white;
@@ -201,7 +251,6 @@
   &__bird {
     transition: .375 ease-in-out;
     position: absolute;
-    left: 20%;
     top: 100px;
     z-index: 10;
     animation-iteration-count: infinite;
@@ -209,15 +258,27 @@
     animation-name: birdFly;
     &--higher {
       width: 75px;
+      left: 20%;
+      @include breakpoint(800px) {
+        left: 10%;
+      }
+      @include breakpoint(500px) {
+        left: 10px;
+      }
     }
     &--lower {
       width: 100px;
-      left: auto;
       right: 20%;
       top: 300px;
       animation-delay: .2s;
       animation-duration: 10.5s;
       animation-direction: reverse;
+      @include breakpoint(800px) {
+        right: 10%;
+      }
+      @include breakpoint(500px) {
+        right: 10px;
+      }
     }
   }
 }
