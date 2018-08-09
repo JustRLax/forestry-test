@@ -160,6 +160,7 @@
       left: 0;
       top: -260px;
       width: 230px;
+      transition: $transition;
       @include breakpoint(1560px, min-width) {
         margin-top: 1%;
       }
@@ -182,6 +183,7 @@
       width: 200px;
       left: 10%;
       top: -50px;
+      transition: $transition;
       @include breakpoint(1560px, min-width) {
         margin-top: 1%;
       }
@@ -204,6 +206,7 @@
       width: 80px;
       left: 32%;
       top: 10px;
+      transition: $transition;
       @include breakpoint(1560px, min-width) {
         margin-top: 1%;
       }
@@ -229,6 +232,7 @@
       width: 90px;
       right: 0;
       top: -40px;
+      transition: $transition;
       @include breakpoint(1560px, min-width) {
         top: -10%;
         margin-top: 1%;
@@ -254,6 +258,7 @@
     top: 100px;
     z-index: 10;
     animation-iteration-count: infinite;
+    transition: $transition;
     @include animated(10s);
     animation-name: birdFly;
     &--higher {
