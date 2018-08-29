@@ -112,7 +112,7 @@ if ($('.footer').length) {
 
 	const footerShow = basicScroll.create({
 		elem: document.querySelector('.projects__project--fixed'),
-		from: 'top-bottom',
+		from: 'middle-bottom',
 		to: 'middle-bottom',
 		direct: document.querySelector('.footer'),
 		props: {
