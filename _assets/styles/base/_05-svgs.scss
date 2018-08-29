@@ -52,3 +52,44 @@
   fill:$purple;
   transition: $transition;
 }
+
+//Box
+.a-box,
+.b-box {
+  fill:none;
+  stroke-dasharray: 2350;
+  stroke-dashoffset: 4700;
+  //stroke-dashoffset: 7050;
+}
+.a-box {
+  stroke: $white;
+}
+.b-box {
+  stroke: $teal;
+}
+
+//Jagged Bottom
+.a-jagged{fill:$white;}
+
+//Play button
+.play-a{
+  fill:#fff;
+}
+
+//Learn Drifting Logo
+//Letters
+.lda{fill: $white;}
+//Box
+.ldb{fill: $red;}
+//Kanji
+.ldc{fill: $white;}
+
+
+.a-logo {
+  fill: $white;
+}
+
+//Footer Icons
+.f-icon {
+  fill: $white;
+}

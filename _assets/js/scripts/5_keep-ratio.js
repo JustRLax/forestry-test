@@ -1,4 +1,4 @@
 //Keep Ratio Images
-if($('.foreground__top').length) {
-  $('.foreground__top').keepRatio({ ratio: 1000/152, calculate: 'height' });
+if($('.video-bg').length) {
+  $('.video-bg').keepRatio({ ratio: 16/9, calculate: 'height' });
 }

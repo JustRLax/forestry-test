@@ -2,62 +2,173 @@
 layout: home
 title: Home
 ---
-<div class="intro">
-  <a href="#" class="intro__logo">
+<div class="scene intro">
+  <a href="#" class="scene__sun">
     {% svg ../../assets/resources/jlax-logo.svg %}
+    <span class="hello">Welcome to jlax86.com</span>
   </a> <!-- / __logo -->
-  <div class="intro__sky intro__sky--light"></div>
-  <div class="intro__sky intro__sky--dark"></div>
-  <div class="intro__hills-back">
+  <div class="scene__sky scene__sky--light"></div>
+  <div class="scene__sky scene__sky--dark"></div>
+  <div class="scene__hills-back">
     {% svg ../../assets/resources/hills-back.svg %}
   </div> <!-- / __hills-back -->
-  <div class="intro__hills-front">
+  <div class="scene__hills-front">
     {% svg ../../assets/resources/hills-front.svg %}
   </div> <!-- / __hills-front -->
-  <div class="intro__city">
+  <div class="scene__city">
     {% svg ../../assets/resources/city.svg %}
   </div> <!-- / __city -->
-  <div class="intro__water"></div> <!-- / __water -->
-  <div class="intro__foreground">
-    <div class="intro__foreground__left">
+  <div class="scene__water"></div> <!-- / __water -->
+  <div class="scene__foreground ground">
+    <div class="scene__foreground__left">
       {% svg ../../assets/resources/foreground.svg %}
     </div> <!-- / __left -->
-    <div class="intro__foreground__right">
+    <div class="scene__foreground__right">
       {% svg ../../assets/resources/foreground-cap.svg %}
     </div> <!-- / __right -->
-    <ul class="intro__items">
-      <li class="intro__items__speedbag">
+    <ul class="scene__items">
+      <li class="scene__items__speedbag">
         <a href="#" class="open-tooltip">
           {% svg ../../assets/resources/speedbag.svg %}
         </a>
         <div class="tooltip">
-
+          <p>I enjoy martial arts</p>
         </div> <!-- / .tooltip -->
       </li> <!-- / __speedbag -->
-      <li class="intro__items__bike">
+      <li class="scene__items__bike">
         <a href="#" class="open-tooltip">
           {% svg ../../assets/resources/bike.svg %}
         </a>
+        <div class="tooltip">
+          <p>I enjoy bikes</p>
+        </div> <!-- / .tooltip -->
       </li> <!-- / __bike -->
-      <li class="intro__items__helmet">
+      <li class="scene__items__helmet">
         <a href="#" class="open-tooltip">
           {% svg ../../assets/resources/helmet.svg %}
         </a>
+        <div class="tooltip">
+          <p>I enjoy cars</p>
+        </div> <!-- / .tooltip -->
       </li> <!-- / __helmet -->
-      <li class="intro__items__speaker">
+      <li class="scene__items__speaker">
         <a href="#" class="open-tooltip">
           {% svg ../../assets/resources/speaker.svg %}
         </a>
+        <div class="tooltip">
+          <p>I enjoy music</p>
+        </div> <!-- / .tooltip -->
       </li> <!-- / __speaker -->
     </ul> <!-- / __items -->
   </div> <!-- / __foreground -->
-  <div class="intro__bird intro__bird--higher">
+  <div class="scene__bird scene__bird--higher">
     {% svg ../../assets/resources/bird.svg %}
   </div> <!-- / __bird -->
-  <div class="intro__bird intro__bird--lower">
+  <div class="scene__bird scene__bird--lower">
     {% svg ../../assets/resources/bird.svg %}
   </div> <!-- / __bird -->
-</div> <!-- / .intro -->
-<div class="foreground">
-
+</div> <!-- / .scene -->
+<div class="foreground ground">
+  <div class="about">
+    <div class="container">
+      <section class="about__content">
+        <h2 class="about__heading">About</h2>
+        <p>Hello, my name is Justin Laxamana. I am a designer and front-end developer that specializes in creating user friendly interactions.  Focusing on design elements such as visual hierarchy, typography, and composition, while being able to write clean, semantic code, allows me to produce experiences that are optimized, easy to use, and fully responsive.</p>
+      </section> <!-- / __content -->
+    </div> <!-- / .container -->
+    <div class="about__jagged">
+      {% svg ../../assets/resources/jagged.svg %}
+    </div> <!-- / __jagged -->
+  </div> <!-- / .about -->
+  <div class="portfolio">
+    <div class="container">
+      <section class="portfolio__content">
+        <h2 class="portfolio__heading">Portfolio</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus quidem quisquam, illum asperiores consequatur. Voluptate autem, quod quae magni.</p>
+      </section> <!-- / __content -->
+      <div class="portfolio__jagged">
+        {% svg ../../assets/resources/jagged.svg %}
+      </div> <!-- / __jagged -->
+    </div> <!-- / .container -->
+  </div> <!-- / .portfolio -->
+  <div class="projects">
+    <div class="projects__project projects__project--dark">
+      <div class="projects__two-col">
+        <div class="container">
+          <div class="col">
+            <div class="logo">
+              {% svg ../../assets/resources/learn-drifting-logo.svg %}
+            </div> <!-- / .logo -->
+            <p>Nunc et vulputate elit. Duis sed sapien mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam molestie nunc sem, a interdum elit accumsan scelerisque. <a href="#">My vision</a> vitae dapibus velit. Sed dignissim sagittis ipsum sed molestie. Morbi elementum euismod elit at feugiat. In quis ex dui. Aenean ultrices scelerisque semper. Mauris consectetur velit elementum, pretium nunc vel, interdum tellus. Proin sagittis quam dui, sed laoreet purus ullamcorper non. Integer hendrerit viverra sagittis. Phasellus turpis erat, tempus ac eros sit amet, tincidunt commodo quam</p>
+          </div> <!-- / .col -->
+          <div class="col">
+            <div class="preview">
+              <figure>
+                <img src="{{ site.cloudinary_url | append: "ld-preview.gif"}}" alt="Learn Drifting Preview">
+                <div class="preview__info">
+                  <a href="#" class="preview__link">{% svg ../../assets/resources/play.svg %} <span>Driving Video Preview</span></a>
+                </div> <!-- / __info -->
+              </figure>
+            </div> <!-- / .preview -->
+            <a href="#" class="button"><span>Preview Website</span></a>
+          </div> <!-- / .col -->
+        </div> <!-- / .container -->
+      </div> <!-- / __two-col -->
+      <div class="video-bg">
+				<video autoplay playsinline muted loop preload="auto" class="video" poster="assets/resources/reel.gif">
+					<source src="assets/resources/reel.webm" type="video/webm"/>
+				</video>
+			</div><!-- / video-bg -->
+    </div> <!-- / __project -->
+    <div class="projects__project projects__project--fixed" style="background-image:url(assets/resources/project-bg.jpg);">
+      <section class="projects__block">
+        <h2>Client Work</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias a, dignissimos error unde maxime cum est deserunt reprehenderit tempora, doloremque aliquid velit sequi ab temporibus nulla, quisquam minus repudiandae explicabo eaque eius odio accusantium laborum maiores. Animi, ipsam, cupiditate.</p>
+        <a href="#" class="button">View Projects</a>
+      </section> <!-- / __block -->
+    </div> <!-- / __project -->
+  </div> <!-- / .projects -->
 </div> <!-- / .foreground -->
+<div class="scene footer">
+  <a href="#" class="scene__sun scene__sun--footer">
+  </a> <!-- / __logo -->
+  <div class="scene__sky scene__sky--blue"></div>
+  <div class="scene__hills-back">
+    {% svg ../../assets/resources/hills-back-b.svg %}
+  </div> <!-- / __hills-back -->
+  <div class="scene__hills-front">
+    {% svg ../../assets/resources/hills-front-b.svg %}
+  </div> <!-- / __hills-front -->
+  <div class="scene__city">
+    {% svg ../../assets/resources/city.svg %}
+  </div> <!-- / __city -->
+  <div class="scene__water"></div> <!-- / __water -->
+  <div class="scene__foreground ground">
+    <div class="scene__foreground__left">
+      {% svg ../../assets/resources/foreground.svg %}
+    </div> <!-- / __left -->
+    <div class="scene__foreground__right">
+      {% svg ../../assets/resources/foreground-cap.svg %}
+    </div> <!-- / __right -->
+    <ul class="scene__items">
+      <li class="scene__items__speedbag">
+        {% svg ../../assets/resources/speedbag.svg %}
+      </li> <!-- / __speedbag -->
+      <li class="scene__items__bike">
+        {% svg ../../assets/resources/bike.svg %}
+      </li> <!-- / __bike -->
+      <li class="scene__items__helmet">
+        {% svg ../../assets/resources/helmet.svg %}
+      </li> <!-- / __helmet -->
+      <li class="scene__items__speaker">
+        {% svg ../../assets/resources/speaker.svg %}
+      </li> <!-- / __speaker -->
+    </ul> <!-- / __items -->
+  </div> <!-- / __foreground -->
+  <div class="scene__bird scene__bird--higher">
+    {% svg ../../assets/resources/bird.svg %}
+  </div> <!-- / __bird -->
+  <div class="scene__bird scene__bird--lower">
+    {% svg ../../assets/resources/bird.svg %}
+  </div> <!-- / __bird -->
+</div> <!-- / .scene -->
