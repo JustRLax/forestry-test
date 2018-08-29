@@ -767,6 +767,16 @@
     }
   }
 }
+.touch {
+  .video-bg {
+    background: url(../resources/reel.gif);
+    background-size: cover;
+
+  }
+  video {
+    display: none;
+  }
+}
 .video-bg {
   z-index: 1;
   margin-top: -10px;
@@ -818,6 +828,52 @@
   opacity: 0;
   &.show {
     opacity: 1;
+  }
+  .info {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 0 20px 20px 20px;
+    display: flex;
+    align-items: flex-start;
+    color: $white;
+    @include breakpoint(550px) {
+      padding-bottom: 10px;
+    }
+    &__icon {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      margin-right: 40px;
+      @include breakpoint(650px) {
+        margin-right: 20px;
+      }
+    }
+    &__details {
+      margin-top: 20px;
+    }
+    p {
+      font-size: .875em;
+      line-height: 1.6;
+    }
+  }
+  .social {
+    margin-bottom: 10px;
+    max-width: 340px;
+    li {
+      margin: 0;
+      width: 30px;
+      display: inline-block;
+      margin-right: 10px;
+      &:hover {
+        .f-icon {
+          fill: $purple;
+        }
+      }
+    }
+    svg {
+      height: 30px;
+    }
   }
   .ground,
   .cap,

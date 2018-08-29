@@ -48,7 +48,7 @@ $h2: 1.5em;
 }
 
 //**** Transitions
-$transition: .375s all ease-in;
+$transition: .3s all ease-in-out;
 
 //**** Animations
 @include setup-fadeInUp;
