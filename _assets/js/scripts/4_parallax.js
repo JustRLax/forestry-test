@@ -60,25 +60,6 @@ if($('.foreground').length) {
 	});
 	foregroundMove.start();
 
-
-	const aboutText = basicScroll.create({
-		elem: document.querySelector('.about'),
-		from: 'top-bottom',
-		to: 'middle-bottom',
-		props: {
-			'--abt': {
-				from: 0,
-				to: 1
-			},
-			'--abv': {
-				from: '-40px',
-				to: '0px'
-			}
-		}
-	});
-	aboutText.start();
-
-
 	const portfolioText = basicScroll.create({
 		elem: document.querySelector('.portfolio'),
 		from: 'top-bottom',
@@ -95,28 +76,6 @@ if($('.foreground').length) {
 		}
 	});
 	portfolioText.start();
-
-	const ldShow = basicScroll.create({
-		elem: document.querySelector('.preview'),
-		from: 'top-bottom',
-		to: 'middle-bottom',
-		props: {
-			'--ldo': {
-				from: 0,
-				to: 1
-			},
-			'--ldt': {
-				from: '-100px',
-				to: '0px'
-			},
-			'--ldt2': {
-				from: '100px',
-				to: '0px'
-			}
-		}
-	});
-	ldShow.start();
-
 
 	const blockShow = basicScroll.create({
 		elem: document.querySelector('.projects__project--fixed'),

@@ -489,6 +489,9 @@
     z-index: 100;
   }
 }
+.touch .projects__project--fixed {
+  background-attachment: scroll;
+}
 .projects {
   width: 100%;
   position: relative;
@@ -636,15 +639,7 @@
       @include breakpoint(400px) {
         padding: 0 0px;
       }
-      &:first-of-type {
-        opacity: var(--ldo);
-        transform: translateX(var(--ldt));
-        will-change: opacity transform;
-      }
       &:last-of-type {
-        opacity: var(--ldo);
-        transform: translateX(var(--ldt2));
-        will-change: opacity transform;
         @include breakpoint(1160px, min-width) {
           padding-left: 140px;
         }
