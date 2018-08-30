@@ -16,6 +16,13 @@ body.loading {
   height: 100%;
   overflow: hidden;
 }
+.no-touch {
+  .scene {
+    &__sun {
+      position: fixed;
+    }
+  }
+}
 .scene {
   width: 100%;
   overflow-x: hidden;
@@ -28,7 +35,7 @@ body.loading {
     opacity: 0;
   }
   &__sun {
-    position: fixed;
+    position: absolute;
     width: 220px;
     height: 220px;
     left: 50%;
