@@ -11,6 +11,11 @@
     display: none;
   }
 }
+
+body.loading {
+  height: 100%;
+  overflow: hidden;
+}
 .scene {
   width: 100%;
   overflow-x: hidden;
@@ -104,13 +109,6 @@
       background-image: linear-gradient(-180deg, #3888A1 0%, #8CC9CC 20%, #EED097 70%);
       border: 1px solid #979797;
     }
-    &--dark {
-      z-index: 1;
-      opacity: var(--sky);
-    	will-change: opacity;
-      background-image: linear-gradient(-180deg, #3E436F 20%, #D85F6C 100%);
-      display: none;
-    }
   }
   &__water {
     position: absolute;
@@ -199,7 +197,7 @@
         .tooltip {
           display: block;
           @include animated(.375s);
-          @include fadeInUp;
+          @include fadeIn;
         }
       }
     }
@@ -207,10 +205,9 @@
       display: none;
       position: absolute;
       left: 50%;
-      margin-left: -90px;
+      transform: translateX(-50%);
       top: -60px;
       border-radius: 3px;
-      width: 180px;
       padding: 10px 20px;
       background: rgba(246,157,54,.4);
       color: $white;
@@ -236,21 +233,23 @@
           fill: $white;
         }
       }
+      .tooltip {
+        width: 160px;
+      }
     }
     &__bike {
       width: 200px;
       left: 10%;
-      top: -50px;
+      top: -45px;
       @include breakpoint(1560px, min-width) {
         margin-top: 1%;
       }
       @include breakpoint(450px) {
         width: 180px;
-        top: -50px;
+        top: -38px;
       }
       @include breakpoint(360px) {
         width: 150px;
-        top: -40px;
       }
       &:hover {
         .bikeframe {
@@ -285,7 +284,8 @@
         top: -50px;
       }
     }
-    &__speaker {
+    &__speaker,
+    &__cat {
       width: 90px;
       right: 0;
       top: -40px;
@@ -306,8 +306,14 @@
           fill: $white;
         }
       }
-      .tooltip {
-        margin-left: -140px;
+    }
+    &__cat {
+      width: 80px;
+      top: -5px;
+      &:hover {
+        .cat-a {
+          fill: $white;
+        }
       }
     }
   }
@@ -343,6 +349,48 @@
       @include breakpoint(500px) {
         right: 10px;
       }
+    }
+  }
+  //Animations
+  &.invisible {
+    .scene__items__speedbag,
+    .scene__items__bike,
+    .scene__items__helmet,
+    .scene__items__speaker,
+    .scene__items__cat {
+      opacity: 0;
+    }
+  }
+  &.animate {
+    &:after {
+      opacity: 0;
+    }
+    .scene__sky--dark {
+      z-index: 1;
+      opacity: var(--sky);
+    	will-change: opacity;
+      background-image: linear-gradient(-180deg, #3E436F 20%, #D85F6C 100%);
+    }
+    .scene__items__speedbag {
+      @include animated(.5s);
+      @include fadeInUp;
+      animation-delay: .2s;
+    }
+    .scene__items__speaker,
+    .scene__items__cat {
+      @include animated(.5s);
+      @include fadeInRight;
+      animation-delay: .2s;
+    }
+    .scene__items__bike{
+      @include animated(.5s);
+      @include fadeInLeft;
+      animation-delay: .4s;
+    }
+    .scene__items__helmet {
+      @include animated(.5s);
+      @include fadeInUp;
+      animation-delay: .6s;
     }
   }
 }
@@ -453,9 +501,6 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    opacity: var(--pt);
-    transform: translateY(var(--ptt));
-    will-change: opacity transform;
     @include breakpoint(600px) {
       font-size: 80%;
     }
@@ -562,8 +607,7 @@
       background: $white;
       color: $purple;
       &:hover {
-        background: $teal;
-        color: $white;
+        transform: scale(1.04);
       }
     }
   }
@@ -823,9 +867,40 @@
 
 
 //Footer
+.no-touch {
+  .footer {
+    min-height: 0;
+    .scene {
+      &__foreground {
+        position: fixed;
+        bottom: 0px;
+      }
+      &__water,
+      &__hills-front,
+      &__hills-back,
+      &__city,
+      &__bird {
+        position: fixed;
+      }
+      &__sun {
+        position: fixed;
+        top: 100px;
+        margin-left: -130px;
+        @include breakpoint(740px, max-height) {
+          top: 40px;
+        }
+        &--footer {
+          transform: translateY(var(--rise));
+        	will-change: transform;
+        }
+      }
+    }
+  }
+}
 .footer {
   z-index: 1;
   opacity: 0;
+  min-height: 860px;
   &.show {
     opacity: 1;
   }
@@ -882,38 +957,171 @@
   .wheels,
   .bikeframe,
   .helmet,
-  .speaker {
+  .speaker,
+  .cat-a {
     fill: $teal !important;
   }
   .city {
     fill: #5A999A;
   }
+  .thanks {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+    .p {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      display: block;
+      border-bottom: 1px solid $purple;
+    }
+    strong {
+      display: block;
+      font-weight: 700;
+      font-size: 1.7em;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: .875em;
+    }
+  }
+  .form {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    &.active {
+      display: flex;
+      @include animated(1s);
+      @include fadeIn();
+      form {
+        animation-delay: 1s;
+        @include animated(.5s);
+        @include fadeInUp();
+      }
+    }
+    &:after {
+      @include content100;
+      position: fixed;
+      background-image: linear-gradient(-180deg, #3888A1 0%, #8CC9CC 20%, #EED097 70%);
+      opacity: .96;
+    }
+    .close {
+      width: 30px;
+      height: 30px;
+      position: fixed;
+      right: 40px;
+      top: 40px;
+      z-index: 1000;
+      cursor: pointer;
+      transition: $transition;
+      @include breakpoint(570px, max-height) {
+        top: 20px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    form {
+      opacity: 0;
+      max-width: 680px;
+      padding: 40px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 100;
+    }
+    fieldset {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: .875em;
+      &:hover {
+        background: $teal;
+        color: $white;
+      }
+    }
+    label {
+      display: block;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: $oswald;
+      font-size: .875em;
+      margin-bottom: 10px;
+    }
+    input,
+    textarea {
+      appearance: none;
+      outline: none;
+      border: none;
+    }
+    textarea {
+      resize: none;
+      height: 100px;
+      line-height: 1.4;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      font-size: .875em;
+      background: rgba(255,255,255,.3);
+      color: $purple;
+      border: none;
+      padding: 10px;
+      transition: $transition;
+      &:focus {
+        background: rgba(255,255,255,.8);
+      }
+    }
+
+  }
   .scene {
     &__foreground {
-      position: fixed;
+      position: absolute;
       bottom: 0px;
     }
     &__sun {
-      position: fixed;
-      width: 220px;
-      height: 220px;
+      position: absolute;
+      width: 260px;
+      height: 260px;
       left: 50%;
-      margin-left: -110px;
       top: 100px;
+      font-size: .875em;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-family: $oswald;
+      text-decoration: none;
+      color: $purple;
       &--footer {
-        transform: translateY(var(--rise));
-      	will-change: transform;
+        &.active {
+          opacity: 0;
+        }
+      }
+      &:hover {
+        .button {
+          transform: scale(1.04);
+        }
       }
     }
     &__water {
       background-image: radial-gradient(51% 160%, #CBDCC7 16%, #8ECBCE 100%);
-    }
-    &__water,
-    &__hills-front,
-    &__hills-back,
-    &__city,
-    &__bird {
-      position: fixed;
     }
   }
 }

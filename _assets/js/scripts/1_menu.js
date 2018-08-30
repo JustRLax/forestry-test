@@ -5,6 +5,12 @@ $('.main-header__menu').on("click", function(e){
   e.preventDefault();
 });
 
+$('.intro .scene__sun').on("click", function(e){
+  $(this).toggleClass('active');
+  $('.main-header__links').toggleClass('active');
+  e.preventDefault();
+});
+
 $('.main-header .mobile-link').on("click", function(e){
   $(this).toggleClass('active');
   $(this).next('.dropdown').toggleClass('active');

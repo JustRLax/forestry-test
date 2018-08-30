@@ -7,8 +7,8 @@ title: Home
     {% svg ../../assets/resources/jlax-logo.svg %}
     <span class="hello">Welcome to jlax86.com</span>
   </a> <!-- / __logo -->
-  <div class="scene__sky scene__sky--light"></div>
   <div class="scene__sky scene__sky--dark"></div>
+  <div class="scene__sky scene__sky--light"></div>
   <div class="scene__hills-back">
     {% svg ../../assets/resources/hills-back.svg %}
   </div> <!-- / __hills-back -->
@@ -32,7 +32,7 @@ title: Home
           {% svg ../../assets/resources/speedbag.svg %}
         </a>
         <div class="tooltip">
-          <p>I enjoy martial arts</p>
+          <p>Heavy hittin' drift footage</p>
         </div> <!-- / .tooltip -->
       </li> <!-- / __speedbag -->
       <li class="scene__items__bike">
@@ -40,7 +40,7 @@ title: Home
           {% svg ../../assets/resources/bike.svg %}
         </a>
         <div class="tooltip">
-          <p>I enjoy bikes</p>
+          <p>Bikes</p>
         </div> <!-- / .tooltip -->
       </li> <!-- / __bike -->
       <li class="scene__items__helmet">
@@ -48,17 +48,17 @@ title: Home
           {% svg ../../assets/resources/helmet.svg %}
         </a>
         <div class="tooltip">
-          <p>I enjoy cars</p>
+          <p>86</p>
         </div> <!-- / .tooltip -->
       </li> <!-- / __helmet -->
-      <li class="scene__items__speaker">
+      <li class="scene__items__cat">
         <a href="#" class="open-tooltip">
-          {% svg ../../assets/resources/speaker.svg %}
+          {% svg ../../assets/resources/cat.svg %}
         </a>
         <div class="tooltip">
-          <p>I enjoy music</p>
+          <p>Fiona</p>
         </div> <!-- / .tooltip -->
-      </li> <!-- / __speaker -->
+      </li> <!-- / __cat -->
     </ul> <!-- / __items -->
   </div> <!-- / __foreground -->
   <div class="scene__bird scene__bird--higher">
@@ -72,8 +72,8 @@ title: Home
   <div class="about">
     <div class="container">
       <section class="about__content">
-        <h2 class="about__heading">About</h2>
-        <p>Hello, my name is Justin Laxamana. I am a designer and front-end developer that specializes in creating user friendly interactions.  Focusing on design elements such as visual hierarchy, typography, and composition, while being able to write clean, semantic code, allows me to produce experiences that are optimized, easy to use, and fully responsive.</p>
+        <h2 class="about__heading">Justin Laxamana</h2>
+        <p>I am a designer and front-end developer that specializes in creating user friendly interactions.  Focusing on design elements such as visual hierarchy, typography, and composition, while being able to write clean, semantic code, allows me to produce experiences that are optimized, easy to use, and fully responsive.</p>
       </section> <!-- / __content -->
     </div> <!-- / .container -->
     <div class="about__jagged">
@@ -131,8 +131,37 @@ title: Home
 </div> <!-- / .foreground -->
 <div class="scene footer">
   <a href="#" class="scene__sun scene__sun--footer">
-  </a> <!-- / __logo -->
+    <span class="thanks">
+      <span class="thanks__inner">
+        <span class="p"><strong>Thank You</strong> for Visiting</span>
+        <span class="button">Contact Me</span>
+      </span> <!-- / __inner -->
+    </span> <!-- / .thanks -->
+  </a> <!-- / __sun -->
+  <div class="form">
+    <form action="#">
+      <fieldset>
+        <label for="name">Name *</label>
+        <input type="text" name="name" id="name" required>
+      </fieldset>
+      <fieldset>
+        <label for="email">Email *</label>
+        <input type="email" name="email" id="email" required>
+      </fieldset>
+      <fieldset>
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject">
+      </fieldset>
+      <fieldset>
+        <label for="message">Message *</label>
+        <textarea type="text" name="message" id="message" required></textarea>
+      </fieldset>
+      <input type="submit" class="button" value="Send">
+    </form>
+    <a href="#" class="close">{% svg ../../assets/resources/close.svg %}</a>
+  </div> <!-- / .form -->
   <div class="scene__sky scene__sky--blue"></div>
+
   <div class="scene__hills-back">
     {% svg ../../assets/resources/hills-back-b.svg %}
   </div> <!-- / __hills-back -->
@@ -160,9 +189,9 @@ title: Home
       <li class="scene__items__helmet">
         {% svg ../../assets/resources/helmet.svg %}
       </li> <!-- / __helmet -->
-      <li class="scene__items__speaker">
-        {% svg ../../assets/resources/speaker.svg %}
-      </li> <!-- / __speaker -->
+      <li class="scene__items__cat">
+        {% svg ../../assets/resources/cat.svg %}
+      </li> <!-- / __cat -->
     </ul> <!-- / __items -->
     <footer class="info">
       <div class="info__icon">
@@ -180,6 +209,7 @@ title: Home
       </div> <!-- / __details -->
     </footer> <!-- / .info -->
   </div> <!-- / __foreground -->
+
   <div class="scene__bird scene__bird--higher">
     {% svg ../../assets/resources/bird.svg %}
   </div> <!-- / __bird -->

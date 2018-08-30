@@ -24,82 +24,68 @@ window.addEventListener('scroll', throttle(detectScroll, 25));
 
 
 if($('body.no-touch').length) {
-	if($('.foreground').length) {
-		const skyChange = basicScroll.create({
-			elem: document.querySelector('.scene__sky--dark'),
-			from: '0',
-			to: '180px',
-			props: {
-				'--sky': {
-					from: .01,
-					to: .99
-				}
-			}
-		});
-		skyChange.start();
+	$('.intro').addClass('invisible');
+	$('body').addClass('loading');
 
-		const groundMove = basicScroll.create({
-			elem: document.querySelector('.scene__foreground'),
-			from: '0',
-			to: '500px',
-			props: {
-				'--fg': {
-					from: '0px',
-					to: '-200px'
+	function parallax() {
+		if($('.foreground').length) {
+			const skyChange = basicScroll.create({
+				elem: document.querySelector('.scene__sky--dark'),
+				from: '0',
+				to: '180px',
+				props: {
+					'--sky': {
+						from: .01,
+						to: .99
+					}
 				}
-			}
-		});
-		groundMove.start();
+			});
+			skyChange.start();
 
-		const foregroundMove = basicScroll.create({
-			elem: document.querySelector('.foreground'),
-			from: '0',
-			to: '500px',
-			props: {
-				'--ty': {
-					from: '0px',
-					to: '-200px'
+			const groundMove = basicScroll.create({
+				elem: document.querySelector('.scene__foreground'),
+				from: '0',
+				to: '500px',
+				props: {
+					'--fg': {
+						from: '0px',
+						to: '-200px'
+					}
 				}
-			}
-		});
-		foregroundMove.start();
+			});
+			groundMove.start();
 
-		const portfolioText = basicScroll.create({
-			elem: document.querySelector('.portfolio'),
-			from: 'top-bottom',
-			to: 'middle-bottom',
-			props: {
-				'--pt': {
-					from: 0,
-					to: 1
-				},
-				'--ptt': {
-					from: '-40px',
-					to: '0px'
+			const foregroundMove = basicScroll.create({
+				elem: document.querySelector('.foreground'),
+				from: '0',
+				to: '500px',
+				props: {
+					'--ty': {
+						from: '0px',
+						to: '-200px'
+					}
 				}
-			}
-		});
-		portfolioText.start();
+			});
+			foregroundMove.start();
 
-		const blockShow = basicScroll.create({
-			elem: document.querySelector('.projects__project--fixed'),
-			from: 'top-bottom',
-			to: 'middle-bottom',
-			props: {
-				'--bo': {
-					from: 0,
-					to: 1
-				},
-				'--bt': {
-					from: '-200px',
-					to: '0px'
+			const blockShow = basicScroll.create({
+				elem: document.querySelector('.projects__project--fixed'),
+				from: 'top-bottom',
+				to: 'middle-bottom',
+				props: {
+					'--bo': {
+						from: 0,
+						to: 1
+					},
+					'--bt': {
+						from: '-200px',
+						to: '0px'
+					}
 				}
-			}
-		});
-		blockShow.start();
-	}
-
-	if ($('.footer').length) {
+			});
+			blockShow.start();
+		}
+		if ($('.footer').length) {
 		const footerRise = basicScroll.create({
 			elem: document.querySelector('.projects__project--fixed'),
 			from: 'middle-top',
@@ -114,4 +100,15 @@ if($('body.no-touch').length) {
 		});
 		footerRise.start();
 	}
+	}
 }
+
+$(window).on("load", function() {
+	if($('body.no-touch').length) {
+		setTimeout(function(){
+			$('.intro').addClass('animate');
+			$('body').removeClass('loading');
+		}, 1000);
+	}
+	parallax();
+});

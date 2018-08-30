@@ -53,6 +53,19 @@
   transition: $transition;
 }
 
+
+//Cat
+.cat-a{fill:$purple; transition: $transition;}
+.cat-b{fill:#DF6C42; transition: $transition;}
+
+//Close
+.a-close {
+  fill: $white;
+  transition: $transition;
+  &:hover {
+    fill: $teal;
+  }
+}
 //Box
 .a-box,
 .b-box {
