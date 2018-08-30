@@ -1,11 +1,11 @@
 function detectScroll() {
 	var scrollTop = $(window).scrollTop();
 	if(scrollTop >= 1000) {
-		$('.intro').addClass('hide');
-		$('.footer').addClass('show');
+		$('.no-touch .intro').addClass('hide');
+		$('.no-touch .footer').addClass('show');
 	} else {
-		$('.intro').removeClass('hide');
-		$('.footer').removeClass('show');
+		$('.no-touch .intro').removeClass('hide');
+		$('.no-touch .footer').removeClass('show');
 	}
 
 }
