@@ -1,3 +1,9 @@
+//scene
+$('.scene__items__cat').on("click", function(e){
+  $(this).toggleClass('meow');
+  e.preventDefault();
+});
+
 // Menu Click
 $('.main-header__menu').on("click", function(e){
   $(this).toggleClass('active');
