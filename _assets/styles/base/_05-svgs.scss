@@ -32,6 +32,15 @@
   transition: $transition;
 }
 
+//sniper
+.snipe {
+  fill:$purple
+}
+.sniper {
+  fill:$purple;
+  transition: $transition;
+}
+
 //bike
 .wheels {
   fill:$purple
@@ -105,5 +114,11 @@
 //Footer Icons
 .f-icon {
   fill: $white;
+  transition: $transition;
+}
+
+//Download
+.a-download {
+  fill: $red;
   transition: $transition;
 }

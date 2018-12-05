@@ -4,35 +4,56 @@ $('.scene__items__cat').on("click", function(e){
   e.preventDefault();
 });
 
-// Menu Click
-$('.main-header__menu').on("click", function(e){
-  $(this).toggleClass('active');
-  $('.main-header__links').toggleClass('active');
-  e.preventDefault();
-});
 
-$('.intro .scene__sun').on("click", function(e){
-  $(this).toggleClass('active');
-  $('.main-header__links').toggleClass('active');
-  e.preventDefault();
-});
-
-$('.main-header .mobile-link').on("click", function(e){
+$('.with-dropdown').on("click", function(e){
   $(this).toggleClass('active');
   $(this).next('.dropdown').toggleClass('active');
-  mobileNavHeight();
   e.preventDefault();
 });
 
-//Mobile Height Overflow
-function mobileNavHeight () {
-  var navHeight = $('.main-header__nav').outerHeight() + 60;
-  var windowHeight = $(window).height();
-  if (navHeight > windowHeight) {
-    $('.main-header__links').addClass("overflow");
-  } else {
-    $('.main-header__links').removeClass("overflow");
+
+//Throttling Function
+function throttle(fn, wait) {
+  var time = Date.now();
+  return function() {
+    if ((time + wait - Date.now()) < 0) {
+      fn();
+      time = Date.now();
+    }
   }
 }
-$(window).on("resize", mobileNavHeight); //Check window width on resize
-$(window).triggerHandler("resize"); // Initial window check
+//Fixed Scroll
+function fixedElements() {
+  if($('.foreground').length) {
+    $('.main-header').addClass('hidden');
+    var scrollTop = $(window).scrollTop();
+    var screenTop = $('.foreground').offset().top - 300;
+    var footerTop = $('.global-footer').offset().top - 300;
+
+    if(scrollTop >= screenTop) {
+      $('.main-header').addClass('active');
+    }
+    else {
+      $('.main-header').removeClass('active');
+    }
+    if(scrollTop >= footerTop) {
+      $('.main-header').removeClass('active');
+    }
+  }
+  if($('.waypoint').length) {
+    if($('.waypoint.aos-animate').length) {
+      $('.main-header').addClass('hidden');
+    } else {
+      $('.main-header').removeClass('hidden');
+    }
+  }
+}
+window.addEventListener('scroll', throttle(fixedElements, 25));
+var resizeTimer;
+$(window).on("resize", function(e) {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function() {
+    fixedElements();
+  }, 250);
+});
+$(window).triggerHandler("resize");

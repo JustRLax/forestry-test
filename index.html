@@ -1,12 +1,12 @@
 ---
 layout: home
-title: Home
+title: jlax86 - Designer / Developer / Artist | Justin Laxamana
 ---
 <div class="scene intro">
-  <a href="#" class="scene__sun">
+  <a href="#about" class="scene__sun anchor">
     {% svg ../../assets/resources/jlax-logo.svg %}
     <span class="hello">Welcome to jlax86.com</span>
-  </a> <!-- / __logo -->
+  </a> <!-- / __sun -->
   <div class="scene__sky scene__sky--dark"></div>
   <div class="scene__sky scene__sky--light"></div>
   <div class="scene__hills-back">
@@ -27,37 +27,28 @@ title: Home
       {% svg ../../assets/resources/foreground-cap.svg %}
     </div> <!-- / __right -->
     <ul class="scene__items">
-      <li class="scene__items__speedbag">
-        <a href="#" class="open-tooltip">
+      <li class="scene__items__speedbag item" data-aos="fade-up" data-aos-delay="450" data-aos-easing="ease-in-out" data-aos-duration="500">
+        <a href="#fight" class="open-modal">
           {% svg ../../assets/resources/speedbag.svg %}
         </a>
-        <div class="tooltip">
-          <p>Heavy hittin' drift footage</p>
-        </div> <!-- / .tooltip -->
-      </li> <!-- / __speedbag -->
-      <li class="scene__items__bike">
-        <a href="#" class="open-tooltip">
-          {% svg ../../assets/resources/bike.svg %}
+      </li> <!-- / __sniper -->
+      <li class="scene__items__bike item" data-aos="fade-right" data-aos-delay="470" data-aos-easing="ease-in-out" data-aos-duration="1000">
+        <a href="#bikes" class="open-modal">
+        {% svg ../../assets/resources/bike.svg %}
         </a>
-        <div class="tooltip">
-          <p>Bikes</p>
-        </div> <!-- / .tooltip -->
       </li> <!-- / __bike -->
-      <li class="scene__items__helmet">
-        <a href="#" class="open-tooltip">
+      <li class="scene__items__helmet item" data-aos="fade-down" data-aos-delay="460" data-aos-easing="ease-in-out" data-aos-duration="700">
+        <a href="#cars" class="open-modal">
           {% svg ../../assets/resources/helmet.svg %}
         </a>
-        <div class="tooltip">
+        <!--<div class="tooltip">
           <p>86</p>
-        </div> <!-- / .tooltip -->
+        </div>  / .tooltip -->
       </li> <!-- / __helmet -->
-      <li class="scene__items__cat">
-        <a href="#" class="open-tooltip">
+      <li class="scene__items__cat item" data-aos="fade-left" data-aos-delay="500" data-aos-easing="ease-in-out" data-aos-duration="500">
+        <a href="#cat" class="open-modal">
           {% svg ../../assets/resources/cat.svg %}
         </a>
-        <div class="tooltip">
-          <p>Fiona</p>
-        </div> <!-- / .tooltip -->
       </li> <!-- / __cat -->
     </ul> <!-- / __items -->
   </div> <!-- / __foreground -->
@@ -70,10 +61,11 @@ title: Home
 </div> <!-- / .scene -->
 <div class="foreground ground">
   <div class="about">
+    <span id="about"></span>
     <div class="container">
       <section class="about__content">
         <h2 class="about__heading">Justin Laxamana</h2>
-        <p>I am a designer and front-end developer that specializes in creating user friendly interactions.  Focusing on design elements such as visual hierarchy, typography, and composition, while being able to write clean, semantic code, allows me to produce experiences that are optimized, easy to use, and fully responsive.</p>
+        <p>I am a designer and front-end developer that specializes in creating user friendly experiences. Focusing on visual hierarchy, typography, and composition, while being able to develop semantic code, helps me to bridge the gap between design and technology. I enjoy doing my best to make the web a better place for future generations. I also enjoy doing stuff with cars, bikes, videos and music.</p>
       </section> <!-- / __content -->
     </div> <!-- / .container -->
     <div class="about__jagged">
@@ -84,7 +76,6 @@ title: Home
     <div class="container">
       <section class="portfolio__content">
         <h2 class="portfolio__heading">Portfolio</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus quidem quisquam, illum asperiores consequatur. Voluptate autem, quod quae magni.</p>
       </section> <!-- / __content -->
       <div class="portfolio__jagged">
         {% svg ../../assets/resources/jagged.svg %}
@@ -92,25 +83,48 @@ title: Home
     </div> <!-- / .container -->
   </div> <!-- / .portfolio -->
   <div class="projects">
-    <div class="projects__project projects__project--dark">
+    <div class="projects__project projects__project--fixed" style="background-image:url(assets/resources/project-bg.jpg);">
+      <section class="projects__block">
+        <h2>Client Work</h2>
+        <p>Over the past several years, I have produced numerous websites working for various agencies and freelancing. These projects range from small microsites and landing pages to integrated corporate websites.</p>
+        <a href="/projects" class="button">View Projects</a>
+      </section> <!-- / __block -->
+    </div> <!-- / __project -->
+    <div class="projects__project projects__project--fixed" style="background-image:url(assets/resources/drift-bg.jpg);">
+      <section class="projects__block">
+        <h2>Drift Videos</h2>
+        <p>I have always had a love for drifting cars. I started bringing my DSLR to events and making little edits for the drifting community on Instagram. After positive feedback, I've decided to host some videos on this website.</p>
+        <div class="list-dropdown">
+          <span class="title">Select stage..</span>
+          <ul>
+            <li><a href="/fb3">Final Bout 3</a></li>
+            <li><a href="/matsuri">Super D Matsuri 2018</a></li>
+            <li><a href="/jam">Club FR Jam 2018</a></li>
+            <li><a href="/mwt">Super D Midwest Trial</a></li>
+            <li><a href="/riobash">Rio Bash</a></li>
+          </ul>
+        </div> <!-- / .list-dropdown -->
+      </section> <!-- / __block -->
+    </div> <!-- / __project -->
+    <div class="projects__project projects__project--dark last-project">
       <div class="projects__two-col">
         <div class="container">
           <div class="col">
             <div class="logo">
               {% svg ../../assets/resources/learn-drifting-logo.svg %}
             </div> <!-- / .logo -->
-            <p>Nunc et vulputate elit. Duis sed sapien mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam molestie nunc sem, a interdum elit accumsan scelerisque. <a href="#">My vision</a> vitae dapibus velit. Sed dignissim sagittis ipsum sed molestie. Morbi elementum euismod elit at feugiat. In quis ex dui. Aenean ultrices scelerisque semper. Mauris consectetur velit elementum, pretium nunc vel, interdum tellus. Proin sagittis quam dui, sed laoreet purus ullamcorper non. Integer hendrerit viverra sagittis. Phasellus turpis erat, tempus ac eros sit amet, tincidunt commodo quam</p>
+            <h2>Learn Drifting</h2>
+            <p>Learn Drifting is a brand that strives to preserve the origins of stylish drifting in Japan by providing a hub for education and a video series that encourages using driving simulators to improve drift and driving techniques. In this project I've been able to incorporate my love for driving, designing, coding, music and video into a single project. Take a look at the driving video preview to see a sneak peek of the video series.</p>
           </div> <!-- / .col -->
           <div class="col">
             <div class="preview">
               <figure>
                 <img src="{{ site.cloudinary_url | append: "ld-preview.gif"}}" alt="Learn Drifting Preview">
                 <div class="preview__info">
-                  <a href="#" class="preview__link">{% svg ../../assets/resources/play.svg %} <span>Driving Video Preview</span></a>
+                  <a href="https://www.youtube.com/watch?v=mVJaldXCs-w" class="preview__link play">{% svg ../../assets/resources/play.svg %} <span>Driving Video Preview</span></a>
                 </div> <!-- / __info -->
               </figure>
             </div> <!-- / .preview -->
-            <a href="#" class="button"><span>Preview Website</span></a>
           </div> <!-- / .col -->
         </div> <!-- / .container -->
       </div> <!-- / __two-col -->
@@ -120,100 +134,18 @@ title: Home
 				</video>
 			</div><!-- / video-bg -->
     </div> <!-- / __project -->
-    <div class="projects__project projects__project--fixed" style="background-image:url(assets/resources/project-bg.jpg);">
-      <section class="projects__block">
-        <h2>Client Work</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias a, dignissimos error unde maxime cum est deserunt reprehenderit tempora, doloremque aliquid velit sequi ab temporibus nulla, quisquam minus repudiandae explicabo eaque eius odio accusantium laborum maiores. Animi, ipsam, cupiditate.</p>
-        <a href="#" class="button">View Projects</a>
-      </section> <!-- / __block -->
-    </div> <!-- / __project -->
   </div> <!-- / .projects -->
 </div> <!-- / .foreground -->
-<div class="scene footer">
-  <a href="#" class="scene__sun scene__sun--footer">
-    <span class="thanks">
-      <span class="thanks__inner">
-        <span class="p"><strong>Thank You</strong> for Visiting</span>
-        <span class="button">Contact Me</span>
-      </span> <!-- / __inner -->
-    </span> <!-- / .thanks -->
-  </a> <!-- / __sun -->
-  <div class="form">
-    <form action="#">
-      <fieldset>
-        <label for="name">Name *</label>
-        <input type="text" name="name" id="name" required>
-      </fieldset>
-      <fieldset>
-        <label for="email">Email *</label>
-        <input type="email" name="email" id="email" required>
-      </fieldset>
-      <fieldset>
-        <label for="subject">Subject</label>
-        <input type="text" name="subject" id="subject">
-      </fieldset>
-      <fieldset>
-        <label for="message">Message *</label>
-        <textarea type="text" name="message" id="message" required></textarea>
-      </fieldset>
-      <input type="submit" class="button" value="Send">
-    </form>
-    <a href="#" class="close">{% svg ../../assets/resources/close.svg %}</a>
-  </div> <!-- / .form -->
-  <div class="scene__sky scene__sky--blue"></div>
-
-  <div class="scene__hills-back">
-    {% svg ../../assets/resources/hills-back-b.svg %}
-  </div> <!-- / __hills-back -->
-  <div class="scene__hills-front">
-    {% svg ../../assets/resources/hills-front-b.svg %}
-  </div> <!-- / __hills-front -->
-  <div class="scene__city">
-    {% svg ../../assets/resources/city.svg %}
-  </div> <!-- / __city -->
-  <div class="scene__water"></div> <!-- / __water -->
-  <div class="scene__foreground ground">
-    <div class="scene__foreground__left">
-      {% svg ../../assets/resources/foreground.svg %}
-    </div> <!-- / __left -->
-    <div class="scene__foreground__right">
-      {% svg ../../assets/resources/foreground-cap.svg %}
-    </div> <!-- / __right -->
-    <ul class="scene__items">
-      <li class="scene__items__speedbag">
-        {% svg ../../assets/resources/speedbag.svg %}
-      </li> <!-- / __speedbag -->
-      <li class="scene__items__bike">
-        {% svg ../../assets/resources/bike.svg %}
-      </li> <!-- / __bike -->
-      <li class="scene__items__helmet">
-        {% svg ../../assets/resources/helmet.svg %}
-      </li> <!-- / __helmet -->
-      <li class="scene__items__cat">
-        {% svg ../../assets/resources/cat.svg %}
-      </li> <!-- / __cat -->
-    </ul> <!-- / __items -->
-    <footer class="info">
-      <div class="info__icon">
-        {% svg ../../assets/resources/jlax-logo-small.svg %}
-      </div> <!-- / __icon -->
-      <div class="info__details">
-        <ul class="social">
-          <li><a href="#" alt="email">{% svg ../../assets/resources/email.svg %}</a></li>
-          <li><a href="#" alt="linkedin">{% svg ../../assets/resources/linkedin.svg %}</a></li>
-          <li><a href="#" alt="instagram">{% svg ../../assets/resources/instagram.svg %}</a></li>
-          <li><a href="#" alt="dribbble">{% svg ../../assets/resources/dribbble.svg %}</a></li>
-          <li><a href="#" alt="codepen">{% svg ../../assets/resources/codepen.svg %}</a></li>
-        </ul>
-        <p>© Copyright 2018. All Rights Reserved. Justin Laxamana</p>
-      </div> <!-- / __details -->
-    </footer> <!-- / .info -->
-  </div> <!-- / __foreground -->
-
-  <div class="scene__bird scene__bird--higher">
-    {% svg ../../assets/resources/bird.svg %}
-  </div> <!-- / __bird -->
-  <div class="scene__bird scene__bird--lower">
-    {% svg ../../assets/resources/bird.svg %}
-  </div> <!-- / __bird -->
-</div> <!-- / .scene -->
+<div id="cat" class="mfp-hide">
+  <div class="image-modal">
+    <img src="{{ site.cloudinary_url | append: "fiona.jpg"}}" alt="Fiona Cat">
+    <p class="caption">Fiona</p>
+  </div> <!-- / .image-modal -->
+</div> <!-- / .mfp-hide -->
+<div id="fight" class="mfp-hide">
+  <div class="image-modal">
+    <video autoplay playsinline muted loop preload="auto" poster="assets/resources/reel.gif">
+      <source src="assets/resources/reel.webm" type="video/webm"/>
+    </video>
+  </div> <!-- / .image-modal -->
+</div> <!-- / .mfp-hide -->
