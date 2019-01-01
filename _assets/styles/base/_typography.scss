@@ -1,7 +1,9 @@
 // Site Typography
+body {
+  font-family: $font-1;
+}
 @mixin h1($margin : 20px) {
-  color: $purple;
-  font-family: $oswald;
+  font-family: $font-1;
   font-weight: 700;
   font-size: 4.6em;
   line-height: 1.1;
@@ -10,14 +12,19 @@
   margin-bottom: $margin;
 }
 @mixin h2($margin : 0px) {
-  font-size: 1.5em;;
+  font-size: 2em;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 10px;
-  font-family: $oswald;
+  letter-spacing: 6px;
+  font-family: $font-2;
   margin-bottom: $margin;
 }
-
+.heading {
+  @include h2();
+  @include breakpoint(600px) {
+    font-size: 1.5em;
+  }
+}
 @mixin h3($margin : 10px) {
   font-size: 1.125em;
   line-height: 1.5;
@@ -42,7 +49,7 @@
 
 @mixin p($margin : 20px) {
   font-size: 1em;
-  line-height: 1.7;
+  line-height: 1.6;
   margin-bottom: $margin;
 }
 
@@ -51,7 +58,22 @@
   line-height: 2;
   margin-bottom: $margin;
 }
-
+.info {
+  @include p();
+  max-width: 600px;
+  margin-top: 20px;
+  position: relative;
+  padding-top: 20px;
+  &:before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: $main-grad;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
 @mixin quote($margin : 20px) {
   font-size: 1.125em;
   line-height: 2;
@@ -63,7 +85,7 @@
 @mixin cite($margin : 0px) {
   display: block;
   font-size: .875em;
-  font-family: $oswald;
+  font-family: $font-1;
   letter-spacing: 1px;
   margin-top: 10px;
   left: 1.4em;
@@ -91,11 +113,22 @@
   }
 }
 @mixin a-link {
-  transition: $dt;
-  color: $red;
-  font-weight: 700;
+  position: relative;
+  text-decoration: none;
+  transform
+  &:before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    bottom: -1px;
+    background: $white;
+    position: absolute;
+    transition: $dt;
+  }
   &:hover {
-    color: $teal;
+    &:before {
+      transform: scale(0);
+    }
   }
 }
 sup {

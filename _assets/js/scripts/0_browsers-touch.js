@@ -11,15 +11,4 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ){
 	}
 	else{
 		$("body").addClass("no-touch");
-
-		$(window).on("load", function() {
-	    $('body').addClass('loaded');
-			AOS.init({
-			  disable: 'mobile'
-			});
-	    setTimeout(function(){
-	      $('body').addClass('remove');
-	    }, 375);
-			$(window).scrollTop(0);
-	  });
 	}

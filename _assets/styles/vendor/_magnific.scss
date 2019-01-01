@@ -7,7 +7,7 @@
 
 // overlay
 $mfp-overlay-color:                   #000 !default;                    // Color of overlay screen
-$mfp-overlay-opacity:                 0.6 !default;                        // Opacity of overlay screen
+$mfp-overlay-opacity:                 1 !default;                        // Opacity of overlay screen
 $mfp-shadow:                          0 0 2px rgba(0, 0, 0, 0.6) !default; // Shadow on image or iframe
 
 // spacing
@@ -28,8 +28,8 @@ $mfp-IE7support:                      true !default;                       // Ve
 
 // Iframe-type options
 $mfp-include-iframe-type:             true !default;                       // Enable Iframe-type popups
-$mfp-iframe-padding-top:              40px !default;                       // Iframe padding top
-$mfp-iframe-background:               #000 !default;                       // Background color of iframes
+$mfp-iframe-padding-top:              60px !default;                       // Iframe padding top
+$mfp-iframe-background:               none !default;                       // Background color of iframes
 $mfp-iframe-max-width:                100% !default;                      // Maximum width of iframes
 $mfp-iframe-ratio:                    9/16 !default;                       // Ratio of iframe (9/16 = widescreen, 3/4 = standard, etc.)
 
@@ -60,7 +60,7 @@ $mfp-use-visuallyhidden:              false !default;                      // Hi
   @include animated(.375s);
   @include fadeIn;
   animation-fill-mode: none;
-  background: rgba(0,0,0,.8);
+  background: $black-grad-2;
 }
 
 .mfp-removing {
@@ -121,12 +121,12 @@ body .mfp-wrap {
   vertical-align: middle;
   margin: 0 auto;
   text-align: left;
-  z-index: 999999;
+  z-index: 8688;
 }
 .mfp-inline-holder,
 .mfp-ajax-holder {
   .mfp-content {
-    width: 100%;
+    max-width: 100%;
     cursor: auto;
   }
 }
@@ -219,24 +219,30 @@ body .mfp-wrap {
 }
 // CSS-reset for buttons
 button {
-  &.mfp-close,
-  &.mfp-arrow {
+  &.mfp-close {
     overflow: visible;
     border: 0;
     -webkit-appearance: none;
     outline: none;
     padding: 0;
     z-index: $mfp-z-index-base + 6;
-    width: 54px;
-    height: 54px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
     position: fixed;
     right: 0px;
     top: 0px;
     color: $white;
-    background: none;
+    background: $color1;
     cursor: pointer;
     display: block;
-    font-size: 5rem;
+    font-size: 40px;
+    line-height: 40px;
+    transition: $dt;
+    &:hover {
+      background: $color2;
+    }
   }
   &::-moz-focus-inner {
       padding: 0;
@@ -259,65 +265,44 @@ button {
 @if $mfp-include-arrows {
   .mfp-arrow {
     position: absolute;
-    opacity: $mfp-controls-opacity;
-    @if $mfp-IE7support {
-      filter: unquote("alpha(opacity=#{$mfp-controls-opacity*100})");
-    }
     margin: 0;
     top: 50%;
-    margin-top: -55px;
+    margin-top: -30px;
     padding: 0;
-    width: 90px;
-    height: 110px;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    &:active {
-      margin-top: -54px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: $color1;
+    z-index: 9000;
+    transition: $dt;
+    box-shadow: $shadow;
+    @include breakpoint(450px) {
+      width: 50px;
+      height: 50px;
+      margin-top: -25px;
     }
-    &:hover,
-    &:focus {
-      opacity: 1;
-      @if $mfp-IE7support {
-        filter: unquote("alpha(opacity=#{1*100})");
-      }
-    }
-    &:before,
-    &:after,
-    .mfp-b,
-    .mfp-a {
+    &:after {
       content: '';
-      display: block;
-      width: 0;
-      height: 0;
+      width: 20px;
+      height: 16px;
       position: absolute;
-      left: 0;
-      top: 0;
-      margin-top: 35px;
-      margin-left: 35px;
+      left: 50%;
+      margin-left: -10px;
+      top: 50%;
+      margin-top: -8px;
+      background: url(../resources/left-arrow-white.svg) no-repeat center center;
+    }
+    &:hover {
+      background: $color2;
     }
   }
-
   .mfp-arrow-left {
     left: 0;
-
-    &:after,
-    .mfp-a {
-      width: 22px;
-      height: 30px;
-      background: url(../fallbacks/left-arrow-white.png) no-repeat center center;
-      background: url(../img/svg/left-arrow-white.svg) no-repeat center center;
-      background-size: cover;
-    }
   }
-
   .mfp-arrow-right {
     right: 0;
-    &:after,
-    .mfp-a {
-      width: 22px;
-      height: 30px;
-      background: url(../fallbacks/right-arrow-white.png) no-repeat center center;
-      background: url(../img/svg/right-arrow-white.svg) no-repeat center center;
-      background-size: cover;
+    &:after {
+      transform: rotate(180deg);
     }
   }
 }
@@ -332,8 +317,13 @@ button {
     .mfp-content {
       line-height: 0;
       width: 100%;
-      max-width: 95%;
-      max-height: 95%;
+      max-width: 1400px;
+      @include breakpoint(900px, max-height) {
+        max-width: 1000px;
+      }
+      @include breakpoint(650px, max-height) {
+        max-width: 600px;
+      }
     }
   }
   .mfp-iframe-scaler {
@@ -343,7 +333,7 @@ button {
     padding-top: $mfp-iframe-ratio * 100%;
     iframe {
       position: absolute;
-      z-index: 99999 !important;
+      z-index: 9999 !important;
       display: block;
       top: 0;
       left: 0;
@@ -406,7 +396,7 @@ button {
   }
   .mfp-title {
     text-align: left;
-    line-height: 18px;
+    @include p(0);
     color: $mfp-caption-title-color;
     word-wrap: break-word;
     padding-right: 36px; // leave some space for counter at right side

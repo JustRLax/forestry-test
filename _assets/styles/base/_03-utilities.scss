@@ -39,6 +39,7 @@ label,
 a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 	outline: none;
+	text-decoration: none;
 }
 
 ul,
@@ -52,9 +53,9 @@ em {
 }
 
 body {
-	font-family: $lato;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background: #000;
 }
 
 img, svg, iframe {

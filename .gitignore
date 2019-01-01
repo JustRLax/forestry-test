@@ -1,6 +1,0 @@
-*.gem
-.bundle
-.sass-cache
-.DS_Store
-node_modules
-Gemfile.lock

@@ -1,6 +1,6 @@
-# JLax86
+# Burstspeed.us
 
-Portfolio
+Burstpeed.us site by jlax86
 
 ## License
 
